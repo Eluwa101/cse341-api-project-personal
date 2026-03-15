@@ -6,12 +6,12 @@ const getProfessionalData = async (req, res) => {
     const data = await db.collection("professional").findOne({});
 
     if (!data) {
-      return res.status(404).json({ message: "No professional data found." });
+      return res.status(404).json({ message: "No data found." });
     }
 
     return res.json(data);
   } catch (error) {
-    console.error("Error fetching professional data:", error);
+    console.error("Error fetching data:", error);
     return res.status(500).json({ message: "Internal server error." });
   }
 };

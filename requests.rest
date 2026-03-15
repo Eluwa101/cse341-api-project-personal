@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:8080
+
+Get professional data
+GET {{baseUrl}}/professional
+
+Get all contacts
+GET {{baseUrl}}/contacts
+
+Get a single contact by id
+GET {{baseUrl}}/contacts/69b5eebc5e1441d229abe77a

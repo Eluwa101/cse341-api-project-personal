@@ -12,14 +12,22 @@ const getMongoUri = () => {
 };
 
 const connectToMongo = async () => {
-  if (db) return db;
+
+  if (db) {
+    return db;
+  }
 
   const uri = getMongoUri();
   client = new MongoClient(uri);
-  await client.connect();
 
+  await client.connect();
   const dbName = process.env.MONGODB_DB;
-  db = dbName ? client.db(dbName) : client.db();
+
+  if (dbName) {
+    db = client.db(dbName);
+  } else {
+    db = client.db();
+  }
   return db;
 };
 

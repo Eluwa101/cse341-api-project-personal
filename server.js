@@ -5,12 +5,14 @@ const app = express();
 
 const { connectToMongo, closeMongo } = require("./data/dbconnect");
 const professionalRouter = require("./routes/professional");
+const contactsRouter = require("./routes/contacts");
 
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
+app.use("/contacts", contactsRouter);
 app.use("/professional", professionalRouter);
-app.use("/data", professionalRouter);
+
 
 const startServer = async () => {
   await connectToMongo();
