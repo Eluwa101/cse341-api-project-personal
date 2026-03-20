@@ -1,10 +1,37 @@
 @baseUrl = http://localhost:8080
 
-Get professional data
+### Get professional data
 GET {{baseUrl}}/professional
 
-Get all contacts
+### Get all contacts
 GET {{baseUrl}}/contacts
 
-Get a single contact by id
-GET {{baseUrl}}/contacts/69b5eebc5e1441d229abe77a
+### Get a single contact by id
+GET {{baseUrl}}/contacts/69bd280963ea74f882a3367c
+
+### Create a contact
+POST {{baseUrl}}/contacts
+Content-Type: application/json
+
+{
+  "firstName": "TestPutUser",
+  "lastName": "UserPut",
+  "email": "test.user@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-01-01"
+}
+
+### Update a contact
+PUT {{baseUrl}}/contacts/69bd280963ea74f882a3367c
+Content-Type: application/json
+
+{
+  "firstName": "UpdatedPutUser",
+  "lastName": "UserPut",
+  "email": "updated.user@example.com",
+  "favoriteColor": "green",
+  "birthday": "1991-02-02"
+}
+
+### Delete a contact
+DELETE {{baseUrl}}/contacts/69bd280963ea74f882a3367c
