@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 
 const { connectToMongo, closeMongo } = require("./data/dbconnect");
-const professionalRouter = require("./routes/professional");
-const contactsRouter = require("./routes/contacts");
+const coursesRouter = require("./routes/courses");
+const studentsRouter = require("./routes/students");
 const swaggerRouter = require("./routes/swagger");
 
 const PORT = process.env.PORT || 8080;
@@ -18,8 +18,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use("/contacts", contactsRouter);
-app.use("/professional", professionalRouter);
+app.use("/students", studentsRouter);
+app.use("/courses", coursesRouter);
 app.use("/", swaggerRouter);
 
 const startServer = async () => {

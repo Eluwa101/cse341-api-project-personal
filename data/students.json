@@ -1,0 +1,57 @@
+[
+{
+  "firstName": "Monday",
+  "lastName": "Eluwa",
+  "email": "monday@example.com",
+  "phone": "+2349134846401",
+  "role": "student",
+  "city": "Aba",
+  "state": "Abia",
+  "country": "Nigeria",
+  "course": "cse111"
+},
+{
+  "firstName": "Emma",
+  "lastName": "Cody",
+  "email": "emma.cody@example.com",
+  "phone": "+2349134846402",
+  "role": "student",
+  "city": "Lagos",
+  "state": "Lagos",
+  "country": "Nigeria",
+  "course": "cse341"
+},
+{
+  "firstName": "Liam",
+  "lastName": "Smith",
+  "email": "liam.smith@example.com",
+  "phone": "+2349134846403",
+  "role": "student",
+  "city": "Abuja",
+  "state": "Federal Capital Territory",
+  "country": "Nigeria",
+  "course": "cse341"
+},
+{
+  "firstName": "Olivia",
+  "lastName": "Johnson",
+  "email": "olivia.johnson@example.com",
+  "phone": "+2349134846404",
+  "role": "student",
+  "city": "Kano",
+  "state": "Kano",
+  "country": "Nigeria",
+  "course": "cse341"
+},
+{
+  "firstName": "Noah",
+  "lastName": "Williams",
+  "email": "noah.williams@example.com",
+  "phone": "+1869897763",
+  "role": "student",
+  "city": "Port Harcourt",
+  "state": "Rivers",
+  "country": "Nigeria",
+  "course": "cse341"
+}
+]

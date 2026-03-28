@@ -1,37 +1,81 @@
 @baseUrl = http://localhost:8080
 
-### Get professional data
-GET {{baseUrl}}/professional
+### Get all students
+GET {{baseUrl}}/students
 
-### Get all contacts
-GET {{baseUrl}}/contacts
+### Get a single student by id
+GET {{baseUrl}}/students/PUT_STUDENT_ID_HERE
 
-### Get a single contact by id
-GET {{baseUrl}}/contacts/69bd280963ea74f882a3367c
-
-### Create a contact
-POST {{baseUrl}}/contacts
+### Create a student
+POST {{baseUrl}}/students
 Content-Type: application/json
 
 {
-  "firstName": "TestPutUser",
-  "lastName": "UserPut",
-  "email": "test.user@example.com",
-  "favoriteColor": "blue",
-  "birthday": "1990-01-01"
+  "firstName": "Test",
+  "lastName": "Student",
+  "email": "test.student@example.com",
+  "phone": "+2349000000000",
+  "role": "student",
+  "city": "Aba",
+  "state": "Abia",
+  "country": "Nigeria",
+  "course": "cse341"
 }
 
-### Update a contact
-PUT {{baseUrl}}/contacts/69bd280963ea74f882a3367c
+### Update a student
+PUT {{baseUrl}}/students/PUT_STUDENT_ID_HERE
 Content-Type: application/json
 
 {
-  "firstName": "UpdatedPutUser",
-  "lastName": "UserPut",
-  "email": "updated.user@example.com",
-  "favoriteColor": "green",
-  "birthday": "1991-02-02"
+  "firstName": "Updated",
+  "lastName": "Student",
+  "email": "updated.student@example.com",
+  "phone": "+2349000000001",
+  "role": "student",
+  "city": "Lagos",
+  "state": "Lagos",
+  "country": "Nigeria",
+  "course": "cse341"
 }
 
-### Delete a contact
-DELETE {{baseUrl}}/contacts/69bd280963ea74f882a3367c
+### Delete a student
+DELETE {{baseUrl}}/students/PUT_STUDENT_ID_HERE
+
+### Get all courses
+GET {{baseUrl}}/courses
+
+### Get a single course by id
+GET {{baseUrl}}/courses/PUT_COURSE_ID_HERE
+
+### Create a course
+POST {{baseUrl}}/courses
+Content-Type: application/json
+
+{
+  "title": "English",
+  "description": "Learn American English.",
+  "instructorId": "u001",
+  "level": "Beginner",
+  "price": 49.99,
+  "lessonsCount": 25,
+  "rating": 4.7,
+  "enrolledStudents": 320
+}
+
+### Update a course
+PUT {{baseUrl}}/courses/PUT_COURSE_ID_HERE
+Content-Type: application/json
+
+{
+  "title": "Mathematics",
+  "description": "Master the fundamentals of mathematics.",
+  "instructorId": "u002",
+  "level": "Intermediate",
+  "price": 79.99,
+  "lessonsCount": 30,
+  "rating": 4.8,
+  "enrolledStudents": 280
+}
+
+### Delete a course
+DELETE {{baseUrl}}/courses/PUT_COURSE_ID_HERE

@@ -2,16 +2,16 @@ const swaggerAutoGen = require("swagger-autogen")();
 
 const doc = {
   info: {
-    title: "Contacts API",
-    description: "A simple Contacts API"
+    title: "Students & Courses API",
+    description: "API for managing students and courses"
   },
   host: "localhost:8080",
-  basePath: "/contacts",
+  basePath: "/",
   schemes: ["http", "https"]
 };
 
 const outputFile = "./swagger.json";
-const endpointsFiles = ["./routes/contacts.js"];
+const endpointsFiles = ["./routes/students.js", "./routes/courses.js"];
 
 swaggerAutoGen(outputFile, endpointsFiles, doc).then(() => {
   require("./server.js");

@@ -1,0 +1,52 @@
+[
+{
+  "title": "English",
+  "description": "Learn American English.",
+  "instructorId": "u001",
+  "level": "Beginner",
+  "price": 49.99,
+  "lessonsCount": 25,
+  "rating": 4.7,
+  "enrolledStudents": 320
+},
+{
+  "title": "Mathematics",
+  "description": "Master the fundamentals of mathematics.",
+  "instructorId": "u002",
+  "level": "Intermediate",
+  "price": 79.99,
+  "lessonsCount": 30,
+  "rating": 4.8,
+  "enrolledStudents": 280
+},
+{
+  "title": "Computer Science",
+  "description": "Learn programming and computer science concepts.",
+  "instructorId": "u003",
+  "level": "Advanced",
+  "price": 99.99,
+  "lessonsCount": 40,
+  "rating": 4.9,
+  "enrolledStudents": 450
+},
+{
+  "title": "History",
+  "description": "Explore world history and significant events.",
+  "instructorId": "u004",
+  "level": "Beginner",
+  "price": 39.99,
+  "lessonsCount": 20,
+  "rating": 4.6,
+  "enrolledStudents": 150
+},
+{
+  "title": "Art and Design",
+  "description": "Learn the principles of art and design.",
+  "instructorId": "u005",
+  "level": "Intermediate",
+  "price": 59.99,
+  "lessonsCount": 35,
+  "rating": 4.7,
+  "enrolledStudents": 200
+}
+]
