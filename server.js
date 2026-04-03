@@ -3,24 +3,56 @@ const express = require("express");
 const app = express();
 
 const { connectToMongo, closeMongo } = require("./data/dbconnect");
-const coursesRouter = require("./routes/courses");
-const studentsRouter = require("./routes/students");
 const swaggerRouter = require("./routes/swagger");
+const passport = require("passport");
+const session = require("express-session");
+const GithubStrategy = require("passport-github2").Strategy;
+const cors = require("cors");
 
 const PORT = process.env.PORT || 8080;
 
-// Access Control Headers for CORS
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Z-Key");
-  next();
+app
+.use(express.json())
+.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}))
+
+// basic express session setup
+.use(passport.initialize())
+// initialize passport session handling on every route
+.use(passport.session())
+// allow passport to use express-session
+.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Z-Key"]
+}))
+.use("/api-docs", swaggerRouter)
+.use("/", require("./routes/index.js"));
+
+passport.use(new GithubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.GITHUB_CALLBACK_URL
+},
+function (accessToken, refreshToken, profile, done) {
+  // In a real application, you would save the user info to your database here
+  // User.create({ githubId: profile.id, username: profile.username }, function (err, user)
+  return done(null, profile);
+}
+));
+
+
+passport.serializeUser((user, done) => {
+  done(null, user);
 });
 
-app.use(express.json());
-app.use("/students", studentsRouter);
-app.use("/courses", coursesRouter);
-app.use("/", swaggerRouter);
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
 
 const startServer = async () => {
   await connectToMongo();

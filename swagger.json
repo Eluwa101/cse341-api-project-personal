@@ -5,13 +5,14 @@
     "description": "API for managing students and courses",
     "version": "1.0.0"
   },
-  "host": "cse341-api-project-personal.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
+    "http",
     "https"
   ],
   "paths": {
-    "/students": {
+    "/students/": {
       "get": {
         "description": "",
         "responses": {
@@ -31,54 +32,33 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "required": [
-                "firstName",
-                "lastName",
-                "email",
-                "phone",
-                "role",
-                "city",
-                "state",
-                "country",
-                "course"
-              ],
               "properties": {
                 "firstName": {
-                  "type": "string",
-                  "example": "Monday"
+                  "example": "any"
                 },
                 "lastName": {
-                  "type": "string",
-                  "example": "Eluwa"
+                  "example": "any"
                 },
                 "email": {
-                  "type": "string",
-                  "format": "email",
-                  "example": "monday@example.com"
+                  "example": "any"
                 },
                 "phone": {
-                  "type": "string",
-                  "example": "+2349134846401"
+                  "example": "any"
                 },
                 "role": {
-                  "type": "string",
-                  "example": "student"
+                  "example": "any"
                 },
                 "city": {
-                  "type": "string",
-                  "example": "Aba"
+                  "example": "any"
                 },
                 "state": {
-                  "type": "string",
-                  "example": "Abia"
+                  "example": "any"
                 },
                 "country": {
-                  "type": "string",
-                  "example": "Nigeria"
+                  "example": "any"
                 },
                 "course": {
-                  "type": "string",
-                  "example": "cse341"
+                  "example": "any"
                 }
               }
             }
@@ -90,6 +70,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -137,54 +120,33 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "required": [
-                "firstName",
-                "lastName",
-                "email",
-                "phone",
-                "role",
-                "city",
-                "state",
-                "country",
-                "course"
-              ],
               "properties": {
                 "firstName": {
-                  "type": "string",
-                  "example": "Monday"
+                  "example": "any"
                 },
                 "lastName": {
-                  "type": "string",
-                  "example": "Eluwa"
+                  "example": "any"
                 },
                 "email": {
-                  "type": "string",
-                  "format": "email",
-                  "example": "monday@example.com"
+                  "example": "any"
                 },
                 "phone": {
-                  "type": "string",
-                  "example": "+2349134846401"
+                  "example": "any"
                 },
                 "role": {
-                  "type": "string",
-                  "example": "student"
+                  "example": "any"
                 },
                 "city": {
-                  "type": "string",
-                  "example": "Aba"
+                  "example": "any"
                 },
                 "state": {
-                  "type": "string",
-                  "example": "Abia"
+                  "example": "any"
                 },
                 "country": {
-                  "type": "string",
-                  "example": "Nigeria"
+                  "example": "any"
                 },
                 "course": {
-                  "type": "string",
-                  "example": "cse341"
+                  "example": "any"
                 }
               }
             }
@@ -196,6 +158,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -219,13 +184,16 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
     },
-    "/courses": {
+    "/courses/": {
       "get": {
         "description": "",
         "responses": {
@@ -245,53 +213,30 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "required": [
-                "title",
-                "description",
-                "instructorId",
-                "level",
-                "price",
-                "lessonsCount",
-                "rating",
-                "enrolledStudents"
-              ],
               "properties": {
                 "title": {
-                  "type": "string",
-                  "example": "English"
+                  "example": "any"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "Learn American English."
+                  "example": "any"
                 },
                 "instructorId": {
-                  "type": "string",
-                  "example": "u001"
+                  "example": "any"
                 },
                 "level": {
-                  "type": "string",
-                  "example": "Beginner"
+                  "example": "any"
                 },
                 "price": {
-                  "type": "number",
-                  "minimum": 0,
-                  "example": 49.99
+                  "example": "any"
                 },
                 "lessonsCount": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "example": 25
+                  "example": "any"
                 },
                 "rating": {
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 5,
-                  "example": 4.7
+                  "example": "any"
                 },
                 "enrolledStudents": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "example": 320
+                  "example": "any"
                 }
               }
             }
@@ -303,6 +248,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -350,53 +298,30 @@
             "in": "body",
             "schema": {
               "type": "object",
-              "required": [
-                "title",
-                "description",
-                "instructorId",
-                "level",
-                "price",
-                "lessonsCount",
-                "rating",
-                "enrolledStudents"
-              ],
               "properties": {
                 "title": {
-                  "type": "string",
-                  "example": "English"
+                  "example": "any"
                 },
                 "description": {
-                  "type": "string",
-                  "example": "Learn American English."
+                  "example": "any"
                 },
                 "instructorId": {
-                  "type": "string",
-                  "example": "u001"
+                  "example": "any"
                 },
                 "level": {
-                  "type": "string",
-                  "example": "Beginner"
+                  "example": "any"
                 },
                 "price": {
-                  "type": "number",
-                  "minimum": 0,
-                  "example": 49.99
+                  "example": "any"
                 },
                 "lessonsCount": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "example": 25
+                  "example": "any"
                 },
                 "rating": {
-                  "type": "number",
-                  "minimum": 0,
-                  "maximum": 5,
-                  "example": 4.7
+                  "example": "any"
                 },
                 "enrolledStudents": {
-                  "type": "integer",
-                  "minimum": 0,
-                  "example": 320
+                  "example": "any"
                 }
               }
             }
@@ -408,6 +333,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -430,6 +358,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
