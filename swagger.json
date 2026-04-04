@@ -5,7 +5,7 @@
     "description": "API for managing students and courses",
     "version": "1.0.0"
   },
-  "host": "cse341-api-project-personal.onrender.com/",
+  "host": "cse341-api-project-personal.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
