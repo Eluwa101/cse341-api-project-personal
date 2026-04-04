@@ -6,17 +6,32 @@ const { connectToMongo, closeMongo } = require("./data/dbconnect");
 const swaggerRouter = require("./routes/swagger");
 const passport = require("passport");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const GithubStrategy = require("passport-github2").Strategy;
 const cors = require("cors");
 
 const PORT = process.env.PORT || 8080;
+
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
 
 app
 .use(express.json())
 .use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI,
+    dbName: process.env.MONGODB_DB,
+    collectionName: "sessions"
+  }),
+  cookie: {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production"
+  }
 }))
 
 // basic express session setup
