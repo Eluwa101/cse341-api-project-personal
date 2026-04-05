@@ -5,6 +5,11 @@ const router = require("express").Router();
 router.use("/students", require("./students.js"));
 router.use("/courses", require("./courses.js"));
 
+// basic home route so OAuth redirects have a landing page
+router.get("/", (req, res) => {
+  res.send("API is running. Try /api-docs or /login.");
+});
+
 router.get("/login", (req, res) => {
   res.redirect("/github");
 });
@@ -20,7 +25,15 @@ router.get("/logout", function (req, res, next) {
     if (err) {
       return next(err);
     }
-    res.redirect("/");
+    // Destroy session and clear cookie to fully log out of the app
+    req.session.destroy(() => {
+      res.clearCookie("connect.sid");
+      const wantsJson = req.accepts(["html", "json"]) === "json";
+      if (wantsJson) {
+        return res.status(200).json({ message: "Logged out" });
+      }
+      res.redirect("/");
+    });
   });
 });
 
